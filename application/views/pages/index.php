@@ -80,5 +80,3 @@
 
 </body>
 </html>
-<!--refresh="refreshAddresses($select.search)"-->
-<!--refresh-delay="0">-->
