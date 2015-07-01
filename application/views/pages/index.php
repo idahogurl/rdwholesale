@@ -6,16 +6,17 @@
     <title></title>
 
 <link href="assets//css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link href="assets/css/app.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/owl.carousel.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/owl.theme.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/owl.transitions.css" rel="stylesheet" type="text/css"/>
+
 
 <script src="assets/scripts/jquery-1.9.1.min.js" type="application/javascript"></script>
 <script src="assets/scripts/bootstrap.min.js" type="application/javascript"></script>
-<script src="assets/scripts/angular/angular.min.js" type="application/javascript"></script>
-<script src="assets/scripts/angular/angular-resource.min.js" type="application/javascript"></script>
-<script src="assets/scripts/angular/angular-sanitize.min.js" type="application/javascript"></script>
-<script src="assets/scripts/angular-ui/ui-bootstrap.js" type="application/javascript"></script>
-<script src="assets/scripts/app.js" type="application/javascript"></script>
+    <script src="assets/scripts/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/scripts/carousel.js" type="application/javascript"></script>
 </head>
 <body>
 
@@ -48,20 +49,22 @@
     </nav>
 </header>
 
-<div ng-controller="searchProductCtrl" id="slides_control">
-    <div>
-        <carousel interval="myInterval">
-            <slide>
+<div class="col-md-9">
+    <div class="col-xs-1 carousel-control left">
+        <a id="prev">
+            <i class="fa fa-chevron-circle-left fa-3x"></i>
+        </a>
+    </div>
+    <div class="col-xs-7" style="left: 20%;">
+        <div id="owl-demo" class="owl-carousel">
+        </div>
 
-                    <div class="col-xs-3" ng-repeat="slide in slides" active="slide.active">
-                         <img ng-src="{{slide.image}}">
-                        <div class="carousel-caption">
-                            <h4>{{slide.text}}</h4>
-                        </div>
-                    </div>
+    </div>
 
-            </slide>
-        </carousel>
+    <div class="col-xs-1">
+        <a id="next">
+            <i class="fa fa-chevron-circle-right fa-3x"></i>
+        </a>
     </div>
 </div>
 
