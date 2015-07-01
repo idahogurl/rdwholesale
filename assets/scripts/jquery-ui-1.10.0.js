@@ -290,7 +290,7 @@
         // only used by resizable
         hasScroll: function (el, a) {
 
-            //If overflow is hidden, the element might have extra content, but the user wants to hide it
+            //If overflow is hidden, the element might have extra css, but the user wants to hide it
             if ($(el).css("overflow") === "hidden") {
                 return false;
             }
@@ -5832,7 +5832,7 @@
                     active = document.activeElement;
 
                 // support: Firefox
-                // Firefox incorrectly exposes anonymous content
+                // Firefox incorrectly exposes anonymous css
                 // https://bugzilla.mozilla.org/show_bug.cgi?id=561664
                 try {
                     active.id;
@@ -6219,14 +6219,14 @@
                 });
             this._destroyIcons();
 
-            // clean up content panels
+            // clean up css panels
             contents = this.headers.next()
                 .css("display", "")
                 .removeAttr("role")
                 .removeAttr("aria-expanded")
                 .removeAttr("aria-hidden")
                 .removeAttr("aria-labelledby")
-                .removeClass("ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content ui-accordion-content-active ui-state-disabled")
+                .removeClass("ui-helper-reset ui-widget-css ui-corner-bottom ui-accordion-css ui-accordion-css-active ui-state-disabled")
                 .each(function () {
                     if (/^ui-accordion/.test(this.id)) {
                         this.removeAttribute("id");
@@ -6357,8 +6357,8 @@
                 .addClass("ui-accordion-header ui-helper-reset ui-state-default ui-corner-all");
 
             this.headers.next()
-                .addClass("ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom")
-                .filter(":not(.ui-accordion-content-active)")
+                .addClass("ui-accordion-css ui-helper-reset ui-widget-css ui-corner-bottom")
+                .filter(":not(.ui-accordion-css-active)")
                 .hide();
         },
 
@@ -6374,7 +6374,7 @@
                 .addClass("ui-accordion-header-active ui-state-active")
                 .toggleClass("ui-corner-all ui-corner-top");
             this.active.next()
-                .addClass("ui-accordion-content-active")
+                .addClass("ui-accordion-css-active")
                 .show();
 
             this.headers
@@ -6554,7 +6554,7 @@
 
                 clicked
                     .next()
-                    .addClass("ui-accordion-content-active");
+                    .addClass("ui-accordion-css-active");
             }
         },
 
@@ -6663,7 +6663,7 @@
             var toHide = data.oldPanel;
 
             toHide
-                .removeClass("ui-accordion-content-active")
+                .removeClass("ui-accordion-css-active")
                 .prev()
                 .removeClass("ui-corner-top")
                 .addClass("ui-corner-all");
@@ -7781,7 +7781,7 @@
             disabled: false // The initial disabled state
         };
         $.extend(this._defaults, this.regional[""]);
-        this.dpDiv = bindHover($("<div id='" + this._mainDivId + "' class='ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'></div>"));
+        this.dpDiv = bindHover($("<div id='" + this._mainDivId + "' class='ui-datepicker ui-widget ui-widget-css ui-helper-clearfix ui-corner-all'></div>"));
     }
 
     $.extend(Datepicker.prototype, {
@@ -7835,7 +7835,7 @@
                 drawMonth: 0, drawYear: 0, // month being drawn
                 inline: inline, // is datepicker inline or not
                 dpDiv: (!inline ? this.dpDiv : // presentation div
-                    bindHover($("<div class='" + this._inlineClass + " ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'></div>")))
+                    bindHover($("<div class='" + this._inlineClass + " ui-datepicker ui-widget ui-widget-css ui-helper-clearfix ui-corner-all'></div>")))
             };
         },
 
@@ -8456,7 +8456,7 @@
             }
         },
 
-        /* Generate the date picker content. */
+        /* Generate the date picker css. */
         _updateDatepicker: function (inst) {
             this.maxRows = 4; //Reset the max number of rows being displayed (see #7043)
             instActive = inst; // for delegate hover events
@@ -9365,7 +9365,7 @@
             controls = (!inst.inline ? "<button type='button' class='ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all' data-handler='hide' data-event='click'>" +
             this._get(inst, "closeText") + "</button>" : "");
 
-            buttonPanel = (showButtonPanel) ? "<div class='ui-datepicker-buttonpane ui-widget-content'>" + (isRTL ? controls : "") +
+            buttonPanel = (showButtonPanel) ? "<div class='ui-datepicker-buttonpane ui-widget-css'>" + (isRTL ? controls : "") +
             (this._isInRange(inst, gotoDate) ? "<button type='button' class='ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all' data-handler='today' data-event='click'" +
             ">" + currentText + "</button>" : "") + (isRTL ? "" : controls) + "</div>" : "";
 
@@ -9844,7 +9844,7 @@
             this.element
                 .show()
                 .removeAttr("title")
-                .addClass("ui-dialog-content ui-widget-content")
+                .addClass("ui-dialog-css ui-widget-css")
                 .appendTo(this.uiDialog);
 
             this._createTitlebar();
@@ -9882,7 +9882,7 @@
 
             this.element
                 .removeUniqueId()
-                .removeClass("ui-dialog-content ui-widget-content")
+                .removeClass("ui-dialog-css ui-widget-css")
                 .css(this.originalCss)
                 // Without detaching first, the following becomes really slow
                 .detach();
@@ -9973,7 +9973,7 @@
         _focusTabbable: function () {
             // Set focus to the first match:
             // 1. First element inside the dialog matching [autofocus]
-            // 2. Tabbable element inside the content element
+            // 2. Tabbable element inside the css element
             // 3. Tabbable element inside the buttonpane
             // 4. The close button
             // 5. The dialog itself
@@ -10013,7 +10013,7 @@
 
         _createWrapper: function () {
             this.uiDialog = $("<div>")
-                .addClass("ui-dialog ui-widget ui-widget-content ui-corner-all ui-front " +
+                .addClass("ui-dialog ui-widget ui-widget-css ui-corner-all ui-front " +
                 this.options.dialogClass)
                 .hide()
                 .attr({
@@ -10056,8 +10056,8 @@
             });
 
             // We assume that any existing aria-describedby attribute means
-            // that the dialog content is marked up properly
-            // otherwise we brute force the content as the description
+            // that the dialog css is marked up properly
+            // otherwise we brute force the css as the description
             if (!this.element.find("[aria-describedby]").length) {
                 this.uiDialog.attr({
                     "aria-describedby": this.element.uniqueId().attr("id")
@@ -10180,7 +10180,7 @@
             }
 
             this.uiDialog.draggable({
-                cancel: ".ui-dialog-content, .ui-dialog-titlebar-close",
+                cancel: ".ui-dialog-css, .ui-dialog-titlebar-close",
                 handle: ".ui-dialog-titlebar",
                 containment: "document",
                 start: function (event, ui) {
@@ -10222,7 +10222,7 @@
             }
 
             this.uiDialog.resizable({
-                cancel: ".ui-dialog-content",
+                cancel: ".ui-dialog-css",
                 containment: "document",
                 alsoResize: this.element,
                 maxWidth: options.maxWidth,
@@ -10363,12 +10363,12 @@
         },
 
         _size: function () {
-            // If the user has resized the dialog, the .ui-dialog and .ui-dialog-content
+            // If the user has resized the dialog, the .ui-dialog and .ui-dialog-css
             // divs will both have width and height set, so we need to reset them
             var nonContentHeight, minContentHeight, maxContentHeight,
                 options = this.options;
 
-            // Reset content sizing
+            // Reset css sizing
             this.element.show().css({
                 width: "auto",
                 minHeight: 0,
@@ -10381,7 +10381,7 @@
             }
 
             // reset wrapper sizing
-            // determine the height of all the non-content elements
+            // determine the height of all the non-css elements
             nonContentHeight = this.uiDialog.css({
                 height: "auto",
                 width: options.width
@@ -10423,7 +10423,7 @@
                             focusin: function (event) {
                                 if (!$(event.target).closest(".ui-dialog").length) {
                                     event.preventDefault();
-                                    $(".ui-dialog:visible:last .ui-dialog-content")
+                                    $(".ui-dialog:visible:last .ui-dialog-css")
                                         .data("ui-dialog")._focusTabbable();
                                 }
                             }
@@ -11218,7 +11218,7 @@
             }
         }
 
-        // Scale the content
+        // Scale the css
         if (scale === "content" || scale === "both") {
 
             // Vertical props scaling
@@ -11528,7 +11528,7 @@
             this.mouseHandled = false;
             this.element
                 .uniqueId()
-                .addClass("ui-menu ui-widget ui-widget-content ui-corner-all")
+                .addClass("ui-menu ui-widget ui-widget-css ui-corner-all")
                 .toggleClass("ui-menu-icons", !!this.element.find(".ui-icon").length)
                 .attr({
                     role: this.options.role,
@@ -11626,7 +11626,7 @@
             this.element
                 .removeAttr("aria-activedescendant")
                 .find(".ui-menu").addBack()
-                .removeClass("ui-menu ui-widget ui-widget-content ui-corner-all ui-menu-icons")
+                .removeClass("ui-menu ui-widget ui-widget-css ui-corner-all ui-menu-icons")
                 .removeAttr("role")
                 .removeAttr("tabIndex")
                 .removeAttr("aria-labelledby")
@@ -11655,7 +11655,7 @@
                 });
 
             // Destroy menu dividers
-            this.element.find(".ui-menu-divider").removeClass("ui-menu-divider ui-widget-content");
+            this.element.find(".ui-menu-divider").removeClass("ui-menu-divider ui-widget-css");
         },
 
         _keydown: function (event) {
@@ -11770,7 +11770,7 @@
 
             // Initialize nested menus
             submenus.filter(":not(.ui-menu)")
-                .addClass("ui-menu ui-widget ui-widget-content ui-corner-all")
+                .addClass("ui-menu ui-widget ui-widget-css ui-corner-all")
                 .hide()
                 .attr({
                     role: this.options.role,
@@ -11809,7 +11809,7 @@
                 var item = $(this);
                 // hyphen, em dash, en dash
                 if (!/[^\-—–\s]/.test(item.text())) {
-                    item.addClass("ui-widget-content ui-menu-divider");
+                    item.addClass("ui-widget-css ui-menu-divider");
                 }
             });
 
@@ -12612,7 +12612,7 @@
             this.oldValue = this.options.value = this._constrainedValue();
 
             this.element
-                .addClass("ui-progressbar ui-widget ui-widget-content ui-corner-all")
+                .addClass("ui-progressbar ui-widget ui-widget-css ui-corner-all")
                 .attr({
                     // Only set static values, aria-valuenow and aria-valuemax are
                     // set inside _refreshValue()
@@ -12628,7 +12628,7 @@
 
         _destroy: function () {
             this.element
-                .removeClass("ui-progressbar ui-widget ui-widget-content ui-corner-all")
+                .removeClass("ui-progressbar ui-widget ui-widget-css ui-corner-all")
                 .removeAttr("role")
                 .removeAttr("aria-valuemin")
                 .removeAttr("aria-valuemax")
@@ -12771,7 +12771,7 @@
                 .addClass("ui-slider" +
                 " ui-slider-" + this.orientation +
                 " ui-widget" +
-                " ui-widget-content" +
+                " ui-widget-css" +
                 " ui-corner-all");
 
             this.range = $([]);
@@ -12852,7 +12852,7 @@
                 " ui-slider-horizontal" +
                 " ui-slider-vertical" +
                 " ui-widget" +
-                " ui-widget-content" +
+                " ui-widget-css" +
                 " ui-corner-all");
 
             this._mouseDestroy();
@@ -13598,7 +13598,7 @@
         },
 
         _uiSpinnerHtml: function () {
-            return "<span class='ui-spinner ui-widget ui-widget-content ui-corner-all'></span>";
+            return "<span class='ui-spinner ui-widget ui-widget-css ui-corner-all'></span>";
         },
 
         _buttonHtml: function () {
@@ -13890,7 +13890,7 @@
             this.running = false;
 
             this.element
-                .addClass("ui-tabs ui-widget ui-widget-content ui-corner-all")
+                .addClass("ui-tabs ui-widget ui-widget-css ui-corner-all")
                 .toggleClass("ui-tabs-collapsible", options.collapsible)
                 // Prevent users from focusing disabled tabs via click
                 .delegate(".ui-tabs-nav > li", "mousedown" + this.eventNamespace, function (event) {
@@ -14270,7 +14270,7 @@
             });
 
             this.panels
-                .addClass("ui-tabs-panel ui-widget-content ui-corner-bottom")
+                .addClass("ui-tabs-panel ui-widget-css ui-corner-bottom")
                 .attr("role", "tabpanel");
         },
 
@@ -14517,7 +14517,7 @@
                 this.xhr.abort();
             }
 
-            this.element.removeClass("ui-tabs ui-widget ui-widget-content ui-corner-all ui-tabs-collapsible");
+            this.element.removeClass("ui-tabs ui-widget ui-widget-css ui-corner-all ui-tabs-collapsible");
 
             this.tablist
                 .removeClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all")
@@ -14535,7 +14535,7 @@
                 } else {
                     $(this)
                         .removeClass("ui-state-default ui-state-active ui-state-disabled " +
-                        "ui-corner-top ui-corner-bottom ui-widget-content ui-tabs-active ui-tabs-panel")
+                        "ui-corner-top ui-corner-bottom ui-widget-css ui-tabs-active ui-tabs-panel")
                         .removeAttr("tabIndex")
                         .removeAttr("aria-live")
                         .removeAttr("aria-busy")
@@ -14890,10 +14890,10 @@
             }
 
             // Content can be updated multiple times. If the tooltip already
-            // exists, then just update the content and bail.
+            // exists, then just update the css and bail.
             tooltip = this._find(target);
             if (tooltip.length) {
-                tooltip.find(".ui-tooltip-content").html(content);
+                tooltip.find(".ui-tooltip-css").html(content);
                 return;
             }
 
@@ -14914,7 +14914,7 @@
 
             tooltip = this._tooltip(target);
             addDescribedBy(target, tooltip.attr("id"));
-            tooltip.find(".ui-tooltip-content").html(content);
+            tooltip.find(".ui-tooltip-css").html(content);
 
             function position(event) {
                 positionOption.of = event;
@@ -15027,10 +15027,10 @@
                         id: id,
                         role: "tooltip"
                     })
-                    .addClass("ui-tooltip ui-widget ui-corner-all ui-widget-content " +
+                    .addClass("ui-tooltip ui-widget ui-corner-all ui-widget-css " +
                     ( this.options.tooltipClass || "" ));
             $("<div>")
-                .addClass("ui-tooltip-content")
+                .addClass("ui-tooltip-css")
                 .appendTo(tooltip);
             tooltip.appendTo(this.document[0].body);
             this.tooltips[id] = element;

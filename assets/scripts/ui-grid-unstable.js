@@ -2015,7 +2015,7 @@ function ($compile, $timeout, $window, $document, gridUtil, uiGridConstants) {
           // Get the height that the scrollbar should have
           var height = rowContainer.getViewportHeight();
 
-          // Update the vertical scrollbar's content height so it's the same as the canvas
+          // Update the vertical scrollbar's css height so it's the same as the canvas
           var contentHeight = rowContainer.getCanvasHeight();
           
           if (grid.options.enableVerticalScrollbar === uiGridConstants.scrollbars.WHEN_NEEDED) {
@@ -5880,7 +5880,7 @@ angular.module('ui.grid')
      * @ngdoc property
      * @name cellFilter
      * @propertyOf ui.grid.class:GridOptions.columnDef
-     * @description cellFilter is a filter to apply to the content of each cell
+     * @description cellFilter is a filter to apply to the css of each cell
      * @example
      * <pre>
      *   gridOptions.columnDefs[0].cellFilter = 'date'
@@ -5892,7 +5892,7 @@ angular.module('ui.grid')
      * @ngdoc property
      * @name headerCellFilter
      * @propertyOf ui.grid.class:GridOptions.columnDef
-     * @description headerCellFilter is a filter to apply to the content of the column header
+     * @description headerCellFilter is a filter to apply to the css of the column header
      * @example
      * <pre>
      *   gridOptions.columnDefs[0].headerCellFilter = 'translate'
@@ -5904,7 +5904,7 @@ angular.module('ui.grid')
      * @ngdoc property
      * @name footerCellFilter
      * @propertyOf ui.grid.class:GridOptions.columnDef
-     * @description footerCellFilter is a filter to apply to the content of the column footer
+     * @description footerCellFilter is a filter to apply to the css of the column footer
      * @example
      * <pre>
      *   gridOptions.columnDefs[0].footerCellFilter = 'date'
@@ -6577,7 +6577,7 @@ angular.module('ui.grid')
        * If you want no header at all, you can set to an empty div:
        * <pre>  $scope.gridOptions.headerTemplate = '<div></div>';</pre>
        * 
-       * If you want to only have a static header, then you can set to static content.  If
+       * If you want to only have a static header, then you can set to static css.  If
        * you want to tailor the existing column headers, then you should look at the
        * current 'ui-grid-header.html' template in github as your starting point.
        * 
@@ -8582,7 +8582,7 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
     // dump('val1', val);
 
     if ( isBorderBox ) {
-      // border-box includes padding, so remove it if we want content
+      // border-box includes padding, so remove it if we want css
       if ( extra === 'content' ) {
         var padd = parseFloat(styles['padding' + side]);
         if (!isNaN(padd)) {
@@ -8601,14 +8601,14 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
       }
     }
     else {
-      // at this point, extra isn't content, so add padding
+      // at this point, extra isn't css, so add padding
       var nocontentPad = parseFloat(styles['padding' + side]);
       if (!isNaN(nocontentPad)) {
         val += nocontentPad;
         // dump('val4', val);
       }
 
-      // at this point, extra isn't content nor padding, so add border
+      // at this point, extra isn't css nor padding, so add border
       if ( extra !== 'padding') {
         var nocontentnopad = parseFloat(styles['border' + side + 'Width']);
         if (!isNaN(nocontentnopad)) {
@@ -13661,7 +13661,7 @@ module.filter('px', function() {
            * @name exporterPdfCustomFormatter
            * @propertyOf  ui.grid.exporter.api:GridOptions
            * @description A custom callback routine that changes the pdf document, adding any
-           * custom styling or content that is supported by pdfMake.  Takes in the complete docDefinition, and
+           * custom styling or css that is supported by pdfMake.  Takes in the complete docDefinition, and
            * must return an updated docDefinition ready for pdfMake.
            * @example
            * In this example we add a style to the style array, so that we can use it in our
@@ -13719,7 +13719,7 @@ module.filter('px', function() {
            * @description A function to call for each field before exporting it.  Allows 
            * massaging of raw data into a display format, for example if you have applied 
            * filters to convert codes into decodes, or you require
-           * a specific date format in the exported content.
+           * a specific date format in the exported css.
            * 
            * The method is called once for each field exported, and provides the grid, the
            * gridCol and the GridRow for you to use as context in massaging the data.
@@ -14033,7 +14033,7 @@ module.filter('px', function() {
          * by @cssensei (from his colleagues at https://github.com/ifeelgoods) in issue #2391
          * @param {string} fileName the filename we'd like our file to be
          * given
-         * @param {string} csvContent the csv content that we'd like to 
+         * @param {string} csvContent the csv css that we'd like to
          * download as a file
          */
         downloadFile: function (fileName, csvContent) {
@@ -14555,7 +14555,7 @@ module.filter('px', function() {
            * importer.noObjects, importer.invalidCsv, importer.invalidJson, importer.jsonNotArray
            * @param {string} consoleMessage the English console message that importer would have written
            * @param {object} context the context data that importer would have appended to that console message,
-           * often the file content itself or the element that is in error
+           * often the file css itself or the element that is in error
            * 
            */
           if ( !gridOptions.importerErrorCallback ||  typeof(gridOptions.importerErrorCallback) !== 'function' ){
@@ -14773,7 +14773,7 @@ module.filter('px', function() {
             
             var newObjects = service.createCsvObjects( grid, importArray );
             if ( !newObjects || newObjects.length === 0 ){
-              service.alertError( grid, 'importer.noObjects', 'Objects were not able to be derived, content was: ', importFile.target.result );
+              service.alertError( grid, 'importer.noObjects', 'Objects were not able to be derived, css was: ', importFile.target.result );
               return;
             }
             
@@ -14821,7 +14821,7 @@ module.filter('px', function() {
           // pull off header row and turn into headers
           var headerMapping = grid.options.importerProcessHeaders( grid, importArray.shift() );
           if ( !headerMapping || headerMapping.length === 0 ){
-            service.alertError( grid, 'importer.noHeaders', 'Column names could not be derived, content was: ', importArray );
+            service.alertError( grid, 'importer.noHeaders', 'Column names could not be derived, css was: ', importArray );
             return [];
           }
           
@@ -14982,7 +14982,7 @@ module.filter('px', function() {
          * @name alertError
          * @methodOf ui.grid.importer.service:uiGridImporterService
          * @description Provides an internationalised user alert for the failure,
-         * and logs a console message including diagnostic content.
+         * and logs a console message including diagnostic css.
          * Optionally, if the the `gridOptions.importerErrorCallback` routine
          * is defined, then calls that instead, allowing user specified error routines
          * @param {Grid} grid the grid we're importing into

@@ -21,7 +21,7 @@ class Products extends REST_Controller
 
     public function index_get() {
 
-        $this->response($this->products_model->get_products($this->get('q')));
+        $this->response($this->products_model->get_products($this->get("q")));
 
     }
 }

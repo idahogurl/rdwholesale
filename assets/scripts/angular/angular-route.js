@@ -372,16 +372,16 @@ function $RouteProvider() {
      *   <file name="protractor.js" type="protractor">
      *     it('should load and compile correct template', function() {
      *       element(by.linkText('Moby: Ch1')).click();
-     *       var content = element(by.css('[ng-view]')).getText();
-     *       expect(content).toMatch(/controller\: ChapterController/);
-     *       expect(content).toMatch(/Book Id\: Moby/);
-     *       expect(content).toMatch(/Chapter Id\: 1/);
+     *       var css = element(by.css('[ng-view]')).getText();
+     *       expect(css).toMatch(/controller\: ChapterController/);
+     *       expect(css).toMatch(/Book Id\: Moby/);
+     *       expect(css).toMatch(/Chapter Id\: 1/);
      *
      *       element(by.partialLinkText('Scarlet')).click();
      *
-     *       content = element(by.css('[ng-view]')).getText();
-     *       expect(content).toMatch(/controller\: BookController/);
-     *       expect(content).toMatch(/Book Id\: Scarlet/);
+     *       css = element(by.css('[ng-view]')).getText();
+     *       expect(css).toMatch(/controller\: BookController/);
+     *       expect(css).toMatch(/Book Id\: Scarlet/);
      *     });
      *   </file>
      * </example>
@@ -724,8 +724,8 @@ ngRouteModule.directive('ngView', ngViewFillContentFactory);
  * Requires the {@link ngRoute `ngRoute`} module to be installed.
  *
  * @animations
- * enter - animation is used to bring new content into the browser.
- * leave - animation is used to animate existing content away.
+ * enter - animation is used to bring new css into the browser.
+ * leave - animation is used to animate existing css away.
  *
  * The enter and leave animation occur concurrently.
  *
@@ -859,16 +859,16 @@ ngRouteModule.directive('ngView', ngViewFillContentFactory);
       <file name="protractor.js" type="protractor">
         it('should load and compile correct template', function() {
           element(by.linkText('Moby: Ch1')).click();
-          var content = element(by.css('[ng-view]')).getText();
-          expect(content).toMatch(/controller\: ChapterCtrl/);
-          expect(content).toMatch(/Book Id\: Moby/);
-          expect(content).toMatch(/Chapter Id\: 1/);
+          var css = element(by.css('[ng-view]')).getText();
+          expect(css).toMatch(/controller\: ChapterCtrl/);
+          expect(css).toMatch(/Book Id\: Moby/);
+          expect(css).toMatch(/Chapter Id\: 1/);
 
           element(by.partialLinkText('Scarlet')).click();
 
-          content = element(by.css('[ng-view]')).getText();
-          expect(content).toMatch(/controller\: BookCtrl/);
-          expect(content).toMatch(/Book Id\: Scarlet/);
+          css = element(by.css('[ng-view]')).getText();
+          expect(css).toMatch(/controller\: BookCtrl/);
+          expect(css).toMatch(/Book Id\: Scarlet/);
         });
       </file>
     </example>
@@ -880,7 +880,7 @@ ngRouteModule.directive('ngView', ngViewFillContentFactory);
  * @name ngView#$viewContentLoaded
  * @eventType emit on the current ngView scope
  * @description
- * Emitted every time the ngView content is reloaded.
+ * Emitted every time the ngView css is reloaded.
  */
 ngViewFactory.$inject = ['$route', '$anchorScroll', '$animate'];
 function ngViewFactory($route, $anchorScroll, $animate) {
@@ -927,10 +927,10 @@ function ngViewFactory($route, $anchorScroll, $animate) {
             var current = $route.current;
 
             // Note: This will also link all children of ng-view that were contained in the original
-            // html. If that content contains controllers, ... they could pollute/change the scope.
-            // However, using ng-view on an element with additional content does not make sense...
+            // html. If that css contains controllers, ... they could pollute/change the scope.
+            // However, using ng-view on an element with additional css does not make sense...
             // Note: We can't remove them in the cloneAttchFn of $transclude as that
-            // function is called before linking the content, which would apply child
+            // function is called before linking the css, which would apply child
             // directives to non existing elements.
             var clone = $transclude(newScope, function(clone) {
               $animate.enter(clone, null, currentElement || $element).then(function onNgViewEnter() {
@@ -955,8 +955,8 @@ function ngViewFactory($route, $anchorScroll, $animate) {
 }
 
 // This directive is called during the $transclude call of the first `ngView` directive.
-// It will replace and compile the content of the element with the loaded template.
-// We need this directive so that the element content is already filled when
+// It will replace and compile the css of the element with the loaded template.
+// We need this directive so that the element css is already filled when
 // the link function of another directive on the same element as ngView
 // is called.
 ngViewFillContentFactory.$inject = ['$compile', '$controller', '$route'];

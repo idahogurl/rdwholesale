@@ -1077,8 +1077,8 @@ angular.mock.dump = function(object) {
          // $httpBackend will respond without you having to
          // specify the expectation and response for this request
 
-         $httpBackend.expectPOST('/add-msg.py', 'message content').respond(201, '');
-         $rootScope.saveMessage('message content');
+         $httpBackend.expectPOST('/add-msg.py', 'message css').respond(201, '');
+         $rootScope.saveMessage('message css');
          expect($rootScope.status).toBe('Saving...');
          $httpBackend.flush();
          expect($rootScope.status).toBe('');

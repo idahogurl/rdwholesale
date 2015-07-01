@@ -1446,14 +1446,14 @@ jQuery.support = (function() {
 		support[ i + "Bubbles" ] = eventName in window || div.attributes[ eventName ].expando === false;
 	}
 
-	div.style.backgroundClip = "content-box";
+	div.style.backgroundClip = "css-box";
 	div.cloneNode( true ).style.backgroundClip = "";
-	support.clearCloneStyle = div.style.backgroundClip === "content-box";
+	support.clearCloneStyle = div.style.backgroundClip === "css-box";
 
 	// Run tests that need a body at doc ready
 	jQuery(function() {
 		var container, marginDiv, tds,
-			divReset = "padding:0;margin:0;border:0;display:block;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;",
+			divReset = "padding:0;margin:0;border:0;display:block;box-sizing:css-box;-moz-box-sizing:css-box;-webkit-box-sizing:css-box;",
 			body = document.getElementsByTagName("body")[0];
 
 		if ( !body ) {
@@ -4059,7 +4059,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Check if getElementById returns elements by name
 	// Check if getElementsByName privileges form controls or returns elements by ID
 	support.getByName = assert(function( div ) {
-		// Inject content
+		// Inject css
 		div.id = expando + 0;
 		div.innerHTML = "<a name='" + expando + "'></a><div name='" + expando + "'></div>";
 		docElem.insertBefore( div, docElem.firstChild );
@@ -4187,7 +4187,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		assert(function( div ) {
 			// Select is set to empty string on purpose
 			// This is to test IE's treatment of not explictly
-			// setting a boolean content attribute,
+			// setting a boolean css attribute,
 			// since its presence should be enough
 			// http://bugs.jquery.com/ticket/12359
 			div.innerHTML = "<select><option selected=''></option></select>";
@@ -4917,7 +4917,7 @@ Expr = Sizzle.selectors = {
 		// Contents
 		"empty": function( elem ) {
 			// http://www.w3.org/TR/selectors/#empty-pseudo
-			// :empty is only affected by element nodes and content nodes(including text(3), cdata(4)),
+			// :empty is only affected by element nodes and css nodes(including text(3), cdata(4)),
 			//   not comment, processing instructions, or others
 			// Thanks to Diego Perini for the nodeName shortcut
 			//   Greater than "@" means alpha characters (specifically not starting with "#" or "?")
@@ -6468,7 +6468,7 @@ jQuery.extend({
 
 					tmp.innerHTML = wrap[1] + elem.replace( rxhtmlTag, "<$1></$2>" ) + wrap[2];
 
-					// Descend through wrappers to the right content
+					// Descend through wrappers to the right css
 					j = wrap[0];
 					while ( j-- ) {
 						tmp = tmp.lastChild;
@@ -7037,7 +7037,7 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 		}
 
 		if ( isBorderBox ) {
-			// border-box includes padding, so remove it if we want content
+			// border-box includes padding, so remove it if we want css
 			if ( extra === "content" ) {
 				val -= jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
 			}
@@ -7047,10 +7047,10 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 				val -= jQuery.css( elem, "border" + cssExpand[ i ] + "Width", true, styles );
 			}
 		} else {
-			// at this point, extra isn't content, so add padding
+			// at this point, extra isn't css, so add padding
 			val += jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
 
-			// at this point, extra isn't content nor padding, so add border
+			// at this point, extra isn't css nor padding, so add border
 			if ( extra !== "padding" ) {
 				val += jQuery.css( elem, "border" + cssExpand[ i ] + "Width", true, styles );
 			}
@@ -7795,7 +7795,7 @@ jQuery.extend({
 					return this;
 				},
 
-				// Overrides response content-type header
+				// Overrides response css-type header
 				overrideMimeType: function( type ) {
 					if ( !state ) {
 						s.mimeType = type;
@@ -7882,14 +7882,14 @@ jQuery.extend({
 		// Uppercase the type
 		s.type = s.type.toUpperCase();
 
-		// Determine if request has content
+		// Determine if request has css
 		s.hasContent = !rnoContent.test( s.type );
 
 		// Save the URL in case we're toying with the If-Modified-Since
 		// and/or If-None-Match header later on
 		cacheURL = s.url;
 
-		// More options handling for requests with no content
+		// More options handling for requests with no css
 		if ( !s.hasContent ) {
 
 			// If data is available, append data to url
@@ -8035,7 +8035,7 @@ jQuery.extend({
 					}
 				}
 
-				// if no content
+				// if no css
 				if ( status === 204 ) {
 					isSuccess = true;
 					statusText = "nocontent";
@@ -8111,7 +8111,7 @@ jQuery.extend({
 
 /* Handles responses to an ajax request:
  * - sets all responseXXX fields accordingly
- * - finds the right dataType (mediates between content-type and expected dataType)
+ * - finds the right dataType (mediates between css-type and expected dataType)
  * - returns the corresponding response
  */
 function ajaxHandleResponses( s, jqXHR, responses ) {
@@ -8127,7 +8127,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 		}
 	}
 
-	// Remove auto dataType and get content-type in the process
+	// Remove auto dataType and get css-type in the process
 	while( dataTypes[ 0 ] === "*" ) {
 		dataTypes.shift();
 		if ( ct === undefined ) {
@@ -8135,7 +8135,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 		}
 	}
 
-	// Check if we're dealing with a known content-type
+	// Check if we're dealing with a known css-type
 	if ( ct ) {
 		for ( type in contents ) {
 			if ( contents[ type ] && contents[ type ].test( ct ) ) {

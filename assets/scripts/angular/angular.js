@@ -1464,7 +1464,7 @@ function getNgAttribute(element, ngAttr) {
 
            <p>The controller could not be instantiated, due to relying
               on automatic function annotations (which are disabled in
-              strict mode). As such, the content of this section is not
+              strict mode). As such, the css of this section is not
               interpolated, and there should be an error in your web console.
            </p>
        </div>
@@ -2677,7 +2677,7 @@ function jqLiteBuildFragment(html, context) {
     wrap = wrapMap[tag] || wrapMap._default;
     tmp.innerHTML = wrap[1] + html.replace(XHTML_TAG_REGEXP, "<$1></$2>") + wrap[2];
 
-    // Descend through wrappers to the right content
+    // Descend through wrappers to the right css
     i = wrap[0];
     while (i--) {
       tmp = tmp.lastChild;
@@ -3643,7 +3643,7 @@ var $$HashMapProvider = [function() {
  * it into the current AngularJS scope.
  *
  * ```js
- * var $div = $('<div ng-controller="MyCtrl">{{content.label}}</div>');
+ * var $div = $('<div ng-controller="MyCtrl">{{css.label}}</div>');
  * $(document.body).append($div);
  *
  * angular.element(document).injector().invoke(function($compile) {
@@ -4351,7 +4351,7 @@ function createInjector(modulesToLoad, strictDi) {
           module = module[module.length - 1];
         }
         if (e.message && e.stack && e.stack.indexOf(e.message) == -1) {
-          // Safari & FF's stack traces don't contain error.message content
+          // Safari & FF's stack traces don't contain error.message css
           // unlike those of Chrome and IE
           // So if stack doesn't contain message, we create a new string that contains both.
           // Since error.stack is read-only in Safari, I'm overriding e and not e.stack here.
@@ -4669,7 +4669,7 @@ function $AnchorScrollProvider() {
           // This is true ONLY if the call to `elem.scrollIntoView()` initially aligns `elem` at the
           // top of the viewport.
           //
-          // IF the number of pixels from the top of `elem` to the end of the page's content is less
+          // IF the number of pixels from the top of `elem` to the end of the page's css is less
           // than the height of the viewport, then `elem.scrollIntoView()` will align the `elem` some
           // way down the page.
           //
@@ -6039,7 +6039,7 @@ function $CacheFactoryProvider() {
  *
  * ```html
  *   <script type="text/ng-template" id="templateId.html">
- *     <p>This is the content of the template</p>
+ *     <p>This is the css of the template</p>
  *   </script>
  * ```
  *
@@ -6052,7 +6052,7 @@ function $CacheFactoryProvider() {
  * ```js
  * var myApp = angular.module('myApp', []);
  * myApp.run(function($templateCache) {
- *   $templateCache.put('templateId.html', 'This is the content of the template');
+ *   $templateCache.put('templateId.html', 'This is the css of the template');
  * });
  * ```
  *
@@ -6283,7 +6283,7 @@ function $TemplateCacheProvider() {
  * * `$transclude` - A transclude linking function pre-bound to the correct transclusion scope:
  *   `function([scope], cloneLinkingFn, futureParentElement)`.
  *    * `scope`: optional argument to override the scope.
- *    * `cloneLinkingFn`: optional argument to create clones of the original transcluded content.
+ *    * `cloneLinkingFn`: optional argument to create clones of the original transcluded css.
  *    * `futureParentElement`:
  *        * defines the parent to which the `cloneLinkingFn` will add the cloned elements.
  *        * default: `$element.parent()` resp. `$element` for `transclude:'element'` resp. `transclude:true`.
@@ -6394,7 +6394,7 @@ function $TemplateCacheProvider() {
  * There are two kinds of transclusion depending upon whether you want to transclude just the contents of the
  * directive's element or the entire element:
  *
- * * `true` - transclude the content (i.e. the child nodes) of the directive's element.
+ * * `true` - transclude the css (i.e. the child nodes) of the directive's element.
  * * `'element'` - transclude the whole of the directive's element including any directives on this
  *   element that defined at a lower priority than this directive. When used, the `template`
  *   property is ignored.
@@ -6512,12 +6512,12 @@ function $TemplateCacheProvider() {
  * Transclusion is used (often with {@link ngTransclude}) to insert the
  * original contents of a directive's element into a specified place in the template of the directive.
  * The benefit of transclusion, over simply moving the DOM elements manually, is that the transcluded
- * content has access to the properties on the scope from which it was taken, even if the directive
+ * css has access to the properties on the scope from which it was taken, even if the directive
  * has isolated scope.
  * See the {@link guide/directive#creating-a-directive-that-wraps-other-elements Directives Guide}.
  *
  * This makes it possible for the widget to have private state for its template, while the transcluded
- * content has access to its originating scope.
+ * css has access to its originating scope.
  *
  * <div class="alert alert-warning">
  * **Note:** When testing an element transclude directive you must not place the directive at the root of the
@@ -6536,20 +6536,20 @@ function $TemplateCacheProvider() {
  * ngTransclude will deal with it for us.
  * </div>
  *
- * If you want to manually control the insertion and removal of the transcluded content in your directive
+ * If you want to manually control the insertion and removal of the transcluded css in your directive
  * then you must use this transclude function. When you call a transclude function it returns a a jqLite/JQuery
  * object that contains the compiled DOM, which is linked to the correct transclusion scope.
  *
  * When you call a transclusion function you can pass in a **clone attach function**. This function accepts
  * two parameters, `function(clone, scope) { ... }`, where the `clone` is a fresh compiled copy of your transcluded
- * content and the `scope` is the newly created transclusion scope, to which the clone is bound.
+ * css and the `scope` is the newly created transclusion scope, to which the clone is bound.
  *
  * <div class="alert alert-info">
  * **Best Practice**: Always provide a `cloneFn` (clone attach function) when you call a translude function
  * since you then get a fresh clone of the original DOM and also have access to the new transclusion scope.
  * </div>
  *
- * It is normal practice to attach your transcluded content (`clone`) to the DOM inside your **clone
+ * It is normal practice to attach your transcluded css (`clone`) to the DOM inside your **clone
  * attach function**:
  *
  * ```js
@@ -6562,7 +6562,7 @@ function $TemplateCacheProvider() {
  * });
  * ```
  *
- * Later, if you want to remove the transcluded content from your DOM then you should also destroy the
+ * Later, if you want to remove the transcluded css from your DOM then you should also destroy the
  * associated transclusion scope:
  *
  * ```js
@@ -6571,7 +6571,7 @@ function $TemplateCacheProvider() {
  * ```
  *
  * <div class="alert alert-info">
- * **Best Practice**: if you intend to add and remove transcluded content manually in your directive
+ * **Best Practice**: if you intend to add and remove transcluded css manually in your directive
  * (by calling the transclude function to get the DOM and calling `element.remove()` to remove it),
  * then you are also responsible for calling `$destroy` on the transclusion scope.
  * </div>
@@ -9927,10 +9927,10 @@ function $HttpProvider() {
         var headers = config.headers;
         var reqData = transformData(config.data, headersGetter(headers), undefined, config.transformRequest);
 
-        // strip content-type if data is undefined
+        // strip css-type if data is undefined
         if (isUndefined(reqData)) {
           forEach(headers, function(value, header) {
-            if (lowercase(header) === 'content-type') {
+            if (lowercase(header) === 'css-type') {
                 delete headers[header];
             }
           });
@@ -10100,7 +10100,7 @@ function $HttpProvider() {
      * Shortcut method to perform `POST` request.
      *
      * @param {string} url Relative or absolute URL specifying the destination of the request
-     * @param {*} data Request content
+     * @param {*} data Request css
      * @param {Object=} config Optional configuration object
      * @returns {HttpPromise} Future object
      */
@@ -10113,7 +10113,7 @@ function $HttpProvider() {
      * Shortcut method to perform `PUT` request.
      *
      * @param {string} url Relative or absolute URL specifying the destination of the request
-     * @param {*} data Request content
+     * @param {*} data Request css
      * @param {Object=} config Optional configuration object
      * @returns {HttpPromise} Future object
      */
@@ -10126,7 +10126,7 @@ function $HttpProvider() {
       * Shortcut method to perform `PATCH` request.
       *
       * @param {string} url Relative or absolute URL specifying the destination of the request
-      * @param {*} data Request content
+      * @param {*} data Request css
       * @param {Object=} config Optional configuration object
       * @returns {HttpPromise} Future object
       */
@@ -16374,7 +16374,7 @@ function $SceDelegateProvider() {
    *
    *     The typical usage for the blacklist is to **block
    *     [open redirects](http://cwe.mitre.org/data/definitions/601.html)** served by your domain as
-   *     these would otherwise be trusted but actually return content from the redirected domain.
+   *     these would otherwise be trusted but actually return css from the redirected domain.
    *
    *     Finally, **the blacklist overrides the whitelist** and has the final say.
    *
@@ -16494,7 +16494,7 @@ function $SceDelegateProvider() {
       // mutable objects, we ensure here that the value passed in is actually a string.
       if (typeof trustedValue !== 'string') {
         throw $sceMinErr('itype',
-            'Attempted to trust a non-string value in a content requiring a string: Context: {0}',
+            'Attempted to trust a non-string value in a css requiring a string: Context: {0}',
             type);
       }
       return new Constructor(trustedValue);
@@ -20885,7 +20885,7 @@ var inputType = {
    * @name input[url]
    *
    * @description
-   * Text input with URL validation. Sets the `url` validation error key if the content is not a
+   * Text input with URL validation. Sets the `url` validation error key if the css is not a
    * valid URL.
    *
    * <div class="alert alert-warning">
@@ -21891,8 +21891,8 @@ var ngValueDirective = function() {
  * @restrict AC
  *
  * @description
- * The `ngBind` attribute tells Angular to replace the text content of the specified HTML element
- * with the value of a given expression, and to update the text content when the value of that
+ * The `ngBind` attribute tells Angular to replace the text css of the specified HTML element
+ * with the value of a given expression, and to update the text css when the value of that
  * expression changes.
  *
  * Typically, you don't use `ngBind` directly, but instead you use the double curly markup like
@@ -21959,7 +21959,7 @@ var ngBindDirective = ['$compile', function($compile) {
  *
  * @description
  * The `ngBindTemplate` directive specifies that the element
- * text content should be replaced with the interpolation of the template
+ * text css should be replaced with the interpolation of the template
  * in the `ngBindTemplate` attribute.
  * Unlike `ngBind`, the `ngBindTemplate` can contain multiple `{{` `}}`
  * expressions. This directive is needed since some HTML elements
@@ -22027,7 +22027,7 @@ var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate
  *
  * @description
  * Evaluates the expression and inserts the resulting HTML into the element in a secure way. By default,
- * the resulting HTML content will be sanitized using the {@link ngSanitize.$sanitize $sanitize} service.
+ * the resulting HTML css will be sanitized using the {@link ngSanitize.$sanitize $sanitize} service.
  * To utilize this functionality, ensure that `$sanitize` is available, for example, by including {@link
  * ngSanitize} in your module's dependencies (not in core Angular). In order to use {@link ngSanitize}
  * in your module's dependencies, you need to include "angular-sanitize.js" in your application.
@@ -22990,7 +22990,7 @@ var ngControllerDirective = [function() {
 
           // For now, we only test on Chrome,
           // as Safari does not load the page with Protractor's injected scripts,
-          // and Firefox webdriver always disables content security policy (#6358)
+          // and Firefox webdriver always disables css security policy (#6358)
           if (browser.params.browser !== 'chrome') {
             return;
           }
@@ -23657,8 +23657,8 @@ var ngIfDirective = ['$animate', function($animate) {
  * access on some browsers.
  *
  * @animations
- * enter - animation is used to bring new content into the browser.
- * leave - animation is used to animate existing content away.
+ * enter - animation is used to bring new css into the browser.
+ * leave - animation is used to animate existing css away.
  *
  * The enter and leave animation occur concurrently.
  *
@@ -23670,7 +23670,7 @@ var ngIfDirective = ['$animate', function($animate) {
  * @param {string=} onload Expression to evaluate when a new partial is loaded.
  *
  * @param {string=} autoscroll Whether `ngInclude` should call {@link ng.$anchorScroll
- *                  $anchorScroll} to scroll the viewport after the content is loaded.
+ *                  $anchorScroll} to scroll the viewport after the css is loaded.
  *
  *                  - If the attribute is not set, disable scrolling.
  *                  - If the attribute is set without value, enable scrolling.
@@ -23783,10 +23783,10 @@ var ngIfDirective = ['$animate', function($animate) {
  * @name ngInclude#$includeContentRequested
  * @eventType emit on the scope ngInclude was declared in
  * @description
- * Emitted every time the ngInclude content is requested.
+ * Emitted every time the ngInclude css is requested.
  *
  * @param {Object} angularEvent Synthetic event object.
- * @param {String} src URL of content to load.
+ * @param {String} src URL of css to load.
  */
 
 
@@ -23795,10 +23795,10 @@ var ngIfDirective = ['$animate', function($animate) {
  * @name ngInclude#$includeContentLoaded
  * @eventType emit on the current ngInclude scope
  * @description
- * Emitted every time the ngInclude content is reloaded.
+ * Emitted every time the ngInclude css is reloaded.
  *
  * @param {Object} angularEvent Synthetic event object.
- * @param {String} src URL of content to load.
+ * @param {String} src URL of css to load.
  */
 
 
@@ -23810,7 +23810,7 @@ var ngIfDirective = ['$animate', function($animate) {
  * Emitted when a template HTTP request yields an erroneous response (status < 200 || status > 299)
  *
  * @param {Object} angularEvent Synthetic event object.
- * @param {String} src URL of content to load.
+ * @param {String} src URL of css to load.
  */
 var ngIncludeDirective = ['$templateRequest', '$anchorScroll', '$animate', '$sce',
                   function($templateRequest,   $anchorScroll,   $animate,   $sce) {
@@ -23866,10 +23866,10 @@ var ngIncludeDirective = ['$templateRequest', '$anchorScroll', '$animate', '$sce
               ctrl.template = response;
 
               // Note: This will also link all children of ng-include that were contained in the original
-              // html. If that content contains controllers, ... they could pollute/change the scope.
-              // However, using ng-include on an element with additional content does not make sense...
+              // html. If that css contains controllers, ... they could pollute/change the scope.
+              // However, using ng-include on an element with additional css does not make sense...
               // Note: We can't remove them in the cloneAttchFn of $transclude as that
-              // function is called before linking the content, which would apply child
+              // function is called before linking the css, which would apply child
               // directives to non existing elements.
               var clone = $transclude(newScope, function(clone) {
                 cleanupLastIncludeContent();
@@ -23899,8 +23899,8 @@ var ngIncludeDirective = ['$templateRequest', '$anchorScroll', '$animate', '$sce
 }];
 
 // This directive is called during the $transclude call of the first `ngInclude` directive.
-// It will replace and compile the content of the element with the loaded template.
-// We need this directive so that the element content is already filled when
+// It will replace and compile the css of the element with the loaded template.
+// We need this directive so that the element css is already filled when
 // the link function of another directive on the same element as ngInclude
 // is called.
 var ngIncludeFillContentDirective = ['$compile',
@@ -24256,9 +24256,9 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  * contents be edited in place by the user.
  *
  * We are using the {@link ng.service:$sce $sce} service here and include the {@link ngSanitize $sanitize}
- * module to automatically remove "bad" content like inline event listener (e.g. `<span onclick="...">`).
- * However, as we are using `$sce` the model can still decide to provide unsafe content if it marks
- * that content using the `$sce` service.
+ * module to automatically remove "bad" css like inline event listener (e.g. `<span onclick="...">`).
+ * However, as we are using `$sce` the model can still decide to provide unsafe css if it marks
+ * that css using the `$sce` service.
  *
  * <example name="NgModelController" module="customControl" deps="angular-sanitize.js">
     <file name="style.css">
@@ -24296,7 +24296,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
               // Write data to the model
               function read() {
                 var html = element.html();
-                // When we clear the content editable the browser leaves a <br> behind
+                // When we clear the css editable the browser leaves a <br> behind
                 // If strip-br attribute is provided then we strip this out
                 if ( attrs.stripBr && html == '<br>' ) {
                   html = '';
@@ -24326,9 +24326,9 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
         return;
       }
       var contentEditable = element(by.css('[contenteditable]'));
-      var content = 'Change me!';
+      var css = 'Change me!';
 
-      expect(contentEditable.getText()).toEqual(content);
+      expect(contentEditable.getText()).toEqual(css);
 
       contentEditable.clear();
       contentEditable.sendKeys(protractor.Key.BACK_SPACE);
@@ -27587,7 +27587,7 @@ var ngSwitchDefaultDirective = ngDirective({
  * @description
  * Directive that marks the insertion point for the transcluded DOM of the nearest parent directive that uses transclusion.
  *
- * Any existing content of the element that this directive is placed on will be removed before the transcluded content is inserted.
+ * Any existing css of the element that this directive is placed on will be removed before the transcluded css is inserted.
  *
  * @element ANY
  *
@@ -27657,7 +27657,7 @@ var ngTranscludeDirective = ngDirective({
  * @restrict E
  *
  * @description
- * Load the content of a `<script>` element into {@link ng.$templateCache `$templateCache`}, so that the
+ * Load the css of a `<script>` element into {@link ng.$templateCache `$templateCache`}, so that the
  * template can be used by {@link ng.directive:ngInclude `ngInclude`},
  * {@link ngRoute.directive:ngView `ngView`}, or {@link guide/directive directives}. The type of the
  * `<script>` element must be specified as `text/ng-template`, and a cache name for the template must be
@@ -27674,12 +27674,12 @@ var ngTranscludeDirective = ngDirective({
       </script>
 
       <a ng-click="currentTpl='/tpl.html'" id="tpl-link">Load inlined template</a>
-      <div id="tpl-content" ng-include src="currentTpl"></div>
+      <div id="tpl-css" ng-include src="currentTpl"></div>
     </file>
     <file name="protractor.js" type="protractor">
       it('should load template defined inside script tag', function() {
         element(by.css('#tpl-link')).click();
-        expect(element(by.css('#tpl-content')).getText()).toMatch(/Content of the template/);
+        expect(element(by.css('#tpl-css')).getText()).toMatch(/Content of the template/);
       });
     </file>
   </example>
@@ -27970,7 +27970,7 @@ var optionDirective = ['$interpolate', function($interpolate) {
     compile: function(element, attr) {
 
       // If the value attribute is not defined then we fall back to the
-      // text content of the option element, which may be interpolated
+      // text css of the option element, which may be interpolated
       if (isUndefined(attr.value)) {
         var interpolateFn = $interpolate(element.text(), true);
         if (!interpolateFn) {

@@ -8,8 +8,6 @@
 ?>
 <html>
 <head>
-    <title>CodeIgniter Tutorial</title>
+    <title>R & D Wholesale Order Form</title>
 </head>
 <body>
-
-<h1><?php echo $title ?></h1>
