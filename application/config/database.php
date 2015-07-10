@@ -64,10 +64,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
+	'hostname' => '198.23.57.27',
+	'username' => 'rebves_db',
 	'password' => 'barryv',
-	'database' => 'rdwholesale',
+	'database' => 'rebves_db',
+	'port' => '3306',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

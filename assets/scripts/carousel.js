@@ -1,34 +1,41 @@
-$(document).ready(function() {
-    var owl = $("#owl-demo");
-    owl.owlCarousel({
-        jsonPath : 'http://localhost:8081/products/?q=',
-        jsonSuccess : customDataSuccess,
-        items : 2,
-        itemsDesktop : [1199,3],
-        itemsDesktopSmall : [979,3],
-        lazyLoad : true,
-        pagination: false
+$.ajax("products/?q=")
+    .done(function (products) {
+        function CreateSlide(swiper, imgSrc, captionText) {
 
-    });
+            swiper.appendSlide('<div class="swiper-slide swiper-slide-p"><a href="#" onclick="alert(\'Coming Soon\')"><img src="assets/images/' + imgSrc +
+                '"/></a><div class="caption">'+ captionText+'</div></div>');
 
-
-    function customDataSuccess(data){
-        var content = "";
-        for(var i in data){
-
-            var img = "assets/images/thumb" + data[i].id + ".jpg";
-            var alt = data[i].text;
-
-            content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">"
+            //var caption = $("<div style='margin-top: 5px'>").appendTo(slide);
+            //caption.addClass("caption");
+            //caption.text(captionText);
         }
-        $("#owl-demo").html(content);
-    }
 
-    // Custom Navigation Events
-    $("#next").click(function(){
-        owl.trigger('owl.next');
+        function GetImageSrc(productName) {
+
+            return productName.replace(/\s/g,"-") + "-Thumb.jpg";
+        }
+
+        var swiperProducts = new Swiper('.swiper-container-p', {
+
+            direction: 'horizontal',
+            slidesPerView: 'auto',
+            freeMode: true
+        });
+
+        var swiperCategories = new Swiper('.swiper-container-c', {
+
+            direction: 'horizontal',
+            slidesPerView: 'auto',
+            freeMode: true
+        });
+
+        for (var productIter = 0 ; productIter < products.length; productIter++) {
+            CreateSlide(swiperProducts, GetImageSrc(products[productIter].name), products[productIter].name);
+        }
+
+        $("#loading-panel").attr("style", "display:none");
     })
-    $("#prev").click(function(){
-        owl.trigger('owl.prev');
-    })
+    .fail(function (statusMessage) {
+        console.log(statusMessage);
+
 });

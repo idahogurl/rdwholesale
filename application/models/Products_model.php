@@ -15,6 +15,7 @@ class Products_model extends CI_Model
     }
 
     function get_products($name) {
+   
        if(!empty($name)) {
            $this->db->like("name", $name);
        }

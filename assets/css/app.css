@@ -1,32 +1,1 @@
-.navbar {
-    background-color: forestgreen;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border: none;
-    border-radius: 0px;
-}
-
-.carousel-control {
-    position: absolute; /* already here */
-    top: 50%;
-    color: black;
-}
-
-.right {
-    left:60%;
-}
-
-.left {
-    left:10%;
-}
-
-.right, .carousel-control-right .left {
-    background-image: none;
-}
-
-#next, #prev {
-    color: black;
-
-}
+@font-face {    font-family: FontAwesome;    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf');}.navbar {    background-color: olivedrab;    padding-top: 10px;    padding-bottom: 10px;    margin-top: 0px;    margin-bottom: 10px;    border: none;}body {    font: 10pt "Open Sans", sans-serif;}.carousel-control.left, .carousel-control.right {    background-image: none !important;}.carousel-control {    top: 40%;}.caption {    font-size: 8pt;    width: 80%;    margin: auto;}.navbar-text {    color: white !important;}@media (max-width: 420px) {    #swiper-container-p {        width: 85%;    }    #swiper-container-c {        margin-left: 30px;    }    #logo {        width: 55%    }    .category {        font-size: 8pt !important;    }    .caption {        font-size: 7pt !important;    }}@media (max-width: 350px) {    #swiper-container-c {        margin-left: -10px;    }}.category {    font-weight: 700;    color: grey;    padding: 0;    margin-bottom: 10px;}.category-selected {    color: black;}a.fa-icon, .fa,  a.contact-infotext  {    color: #fff8aa;}.contactinfo-text {   color: #fff8aa;}@media (max-width: 600px) {    #swiper-container-c:hover {        cursor: -webkit-grab;        cursor: -moz-grab;        cursor: url(http://www.dynamicdiner.com/rdwholesale/assets/images/openhand.cur), pointer;    }}a {    color: gray;}

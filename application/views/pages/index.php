@@ -1,82 +1,1 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="orderApp">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"
-    <title></title>
-
-<link href="assets//css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="assets/css/app.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/owl.carousel.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/owl.theme.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/owl.transitions.css" rel="stylesheet" type="text/css"/>
-
-
-<script src="assets/scripts/jquery-1.9.1.min.js" type="application/javascript"></script>
-<script src="assets/scripts/bootstrap.min.js" type="application/javascript"></script>
-    <script src="assets/scripts/owl-carousel/owl.carousel.min.js"></script>
-    <script src="assets/scripts/carousel.js" type="application/javascript"></script>
-</head>
-<body>
-
-<header>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="#">
-                    <img alt="Brand" src="assets/images/logo.png" style="margin-left: 30px; width:30%">
-                </a>
-            </div>
-            2312 W Heritage Cir, Idaho Falls, Idaho 83402
-            Hours
-            Mon - Fri:
-            8:00 am - 5:30 pm
-            Sat:
-            8:00 am - 3:00 pm
-
-            R&D Wholesale Nursery serves landscape professionals and general contractors in Eastern Idaho and Western
-            Wyoming. We are also open to the public during regular business hours. We specialize in a full line of hardy
-            trees, shrubs, and perennials.
-
-            Trees, Shrubs, and Perennial's at below-retail pricing. Come see us today for great products at a great
-            price.
-            Phone
-            <a href="tel:2085205085"> (208) 520-5085</a>
-
-            <a href="mailto:rdwholesalenursery@gmail.com"> rdwholesalenursery@gmail.com</a>
-        </div>
-    </nav>
-</header>
-
-<div class="col-md-9">
-    <div class="col-xs-1 carousel-control left">
-        <a id="prev">
-            <i class="fa fa-chevron-circle-left fa-3x"></i>
-        </a>
-    </div>
-    <div class="col-xs-7" style="left: 20%;">
-        <div id="owl-demo" class="owl-carousel">
-        </div>
-
-    </div>
-
-    <div class="col-xs-1">
-        <a id="next">
-            <i class="fa fa-chevron-circle-right fa-3x"></i>
-        </a>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <iframe width="600" height="450" frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?q=2312%20W%20Heritage%20Cir%2C%20Idaho%20Falls%2C%20Idaho%2083402&key=..."></iframe>
-</div>
-<div class="col-md-4">
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/q14xR35HnvE"></iframe>
-    </div>
-</div>
-
-</body>
-</html>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/html"><head>    <meta http-equiv="content-type" content="text/html; charset=UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">    <title>    </title>    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"          type="text/css"/>    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">    <link href="assets/css/app.css" rel="stylesheet"/>    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.8/css/swiper.min.css" rel="stylesheet"/>    <script src="https://code.jquery.com/jquery-1.11.1.min.js" type="application/javascript"></script>    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"            type="application/javascript"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.8/js/swiper.jquery.js"></script>    <script src="assets/scripts/carousel.js"></script>    <style>        /*Won't auto show slides if inside of a stylesheet*/        .swiper-slide {            text-align: center;            background: #fff;            width: 95px;        }        .swiper-container-c {            max-width: 570px;            margin: auto;            font-size: 11pt;        }        .swiper-container-p {            cursor: url(http://www.dynamicdiner.com/rdwholesale/assets/images/openhand.cur), pointer        }        .swiper-container-p:hover {            cursor: -webkit-grab;            cursor: -moz-grab;        }        .swiper-slide-p {            width: 185px;            font-size: 8pt;        }    </style></head><body><!--    R&D Wholesale Nursery serves landscape professionals and general contractors in Eastern Idaho and Western Wyoming. We are also open to the public during regular business hours. We specialize in a full line of hardy trees, shrubs, and perennials.--><!--    rees, Shrubs, and Perennial's at below-retail pricing. Come see us today for great products at a great price.--><header>    <nav class="navbar navbar-default">        <div class="visible-xs" style="float: right; margin-right:15px ">            <a href="https://www.facebook.com/rdnursery"               target="_blank" class="fa-icon"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;            <a href="tel:2085205085" class="fa-icon"><i class="fa fa-phone"></i></a>&nbsp;&nbsp;            <a href="mailto:rdwholesalenursery@gmail.com" class="fa-icon"><i class="fa fa-envelope"></i></a>        </div>        <div class="navbar-header ">            <a href="#" style="margin-left:15px"><img id="logo" src="assets/images/logo.png"/></a>        </div>        <div class="container-fluid">            <div class="row-fluid">                <div style="margin-bottom:15px" class="col-xs-12 col-sm-6 contactinfo-text">Mon - Fri: 8:00 AM - 5:30 PM                    <br/>Sat: 8:00 AM - 3:00 PM                </div>                <div class="hidden-xs col-xs-6">                    <i class="fa fa-facebook contactinfo-icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a                        href="https://www.facebook.com/rdnursery" class="contact-infotext"                        target="_blank">https://www.facebook.com/rdnursery</a><br/>                    <i class="fa fa-phone  contactinfo-icon""></i>&nbsp;&nbsp;&nbsp;<a href="tel:2085205085" class="contact-infotext"> (208)                        520-5085</a><br/>                    <i class="fa fa-envelope contactinfo-icon"></i>&nbsp;&nbsp;&nbsp;<a href="mailto:rdwholesalenursery@gmail.com" class="contact-infotext">rdwholesalenursery@gmail.com</a>                </div>            </div>        </div>    </nav></header><div class="swiper-container swiper-container-c text-uppercase text-center" id="swiper-container-c">    <div class="swiper-wrapper">        <div class="swiper-slide category"><a href="#" onclick="alert('Coming Soon')">Trees</a></div>        <div class="swiper-slide category"><a href="#" style="color:silver">Shrubs</a></div>        <div class="swiper-slide category"><a href="#" onclick="alert('Coming Soon')">Roses</a></div>        <div class="swiper-slide category"><a href="#" onclick="alert('Coming Soon')">Perennials</a></div>        <div class="swiper-slide category"><a href="#" onclick="alert('Coming Soon')">Vines</a></div>        <div class="swiper-slide category"><a href="#" onclick="alert('Coming Soon')">Grasses</a></div>    </div></div><!-- Swiper --><div id="loading-panel" style="margin: auto; width:32px">    <img src="assets/images/AjaxLoader.gif"></div><div class="swiper-container swiper-container-p text-center" style="padding-bottom: 20px" id="swiper-container-p">    <div class="swiper-wrapper">    </div></div><div class="container-fluid">    <div class="row">        <div class="col-md-6" style="padding:0px">            <a href="https://www.google.com/maps?ll=43.44282,-112.079855&z=16&t=m&hl=en-US&gl=US&mapclient=embed&q=2312+W+Heritage+Cir+Idaho+Falls,+ID+83402"               target="_blank"><img                    src="assets/images/map.png" class="img-responsive"/>            </a>        </div>        <div class="col-md-6" style="padding:0px">            <div id="video-carousel" class="carousel slide" data-interval="false">                <!-- Indicators -->                <ol class="carousel-indicators">                    <li data-target="#video-carousel" data-slide-to="0" class="active"></li>                    <li data-target="#video-carousel" data-slide-to="1"></li>                    <li data-target="#video-carousel" data-slide-to="2"></li>                    <li data-target="#video-carousel" data-slide-to="3"></li>                    <li data-target="#video-carousel" data-slide-to="4"></li>                    <li data-target="#video-carousel" data-slide-to="5"></li>                    <li data-target="#video-carousel" data-slide-to="6"></li>                    <li data-target="#video-carousel" data-slide-to="7"></li>                    <li data-target="#video-carousel" data-slide-to="8"></li>                </ol>                <!-- Wrapper for slides -->                <div class="carousel-inner" role="listbox">                    <div class="item active">                        <div class="embed-responsive embed-responsive-16by9">                            <iframe class="embed-responsive-item"                                    src="https://www.youtube.com/embed/q14xR35HnvE"></iframe>                        </div>                    </div>                    <div class="item">                        <div class="embed-responsive embed-responsive-16by9">                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MJxfycQpzg4"                                    frameborder="0" allowfullscreen></iframe>                        </div>                    </div>                    <div class="item">                        <div class="embed-responsive embed-responsive-16by9" style="width:100%">                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Y0xsACDRxCQ"                                    frameborder="0" allowfullscreen></iframe>                        </div>                    </div>                    <div class="item">                        <div class="embed-responsive embed-responsive-16by9">                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/DD61IiZk8zc"                                    frameborder="0" allowfullscreen></iframe>                        </div>                    </div>                    <div class="item">                        <div class="embed-responsive embed-responsive-16by9">                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zGbWWzJ-0-4"                                    frameborder="0" allowfullscreen></iframe>                        </div>                    </div>                    <div class="item">                        <div class="embed-responsive embed-responsive-16by9">                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_fDqURxu88E"                                    frameborder="0" allowfullscreen></iframe>                        </div>                    </div>                    <div class="item">                        <div class="embed-responsive embed-responsive-16by9">                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/posr_cbuSwA"                                    frameborder="0" allowfullscreen></iframe>                        </div>                    </div>                    <div class="item">                        <div class="embed-responsive embed-responsive-16by9">                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/PJmxeyEBSPg"                                    frameborder="0" allowfullscreen></iframe>                        </div>                    </div>                    <!-- Left and right controls -->                    <a class="left carousel-control" href="#video-carousel" role="button" data-slide="prev">                        <span class="fa fa-chevron-circle-left fa-2x" aria-hidden="true"></span>                        <span class="sr-only">Previous</span>                    </a>                    <a class="right carousel-control" href="#video-carousel" role="button" data-slide="next">                        <span class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></span>                        <span class="sr-only">Next</span>                    </a>                </div>            </div>        </div>    </div></body></html>
